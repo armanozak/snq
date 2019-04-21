@@ -72,7 +72,7 @@ Otherwise, you will get a type error. Using `snq`, it is safe to write the follo
 ```typescript
 const symbol = snq(() => this.products[0].price.original.symbol);
 
-// symbol is undefined if a type error happens
+// symbol is undefined if a type error happens, actual value if not
 ```
 
 There is an optional second argument which represents the default value to return when a type error happens.
@@ -80,7 +80,9 @@ There is an optional second argument which represents the default value to retur
 ```typescript
 const symbol = snq(() => this.products[0].price.original.symbol, '$');
 
-// symbol is "$" if a type error happens
+// symbol is "$" if a type error happens, actual value if not
 ```
 
 The type of the symbol returned will be inferred as string in both cases.
+
+Check the [demo application](https://stackblitz.com/edit/snq) out.
