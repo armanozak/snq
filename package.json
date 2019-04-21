@@ -1,7 +1,7 @@
 {
   "name": "snq",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "A utility function to avoid type errors when traversing over arrays and object properties.",
   "keywords": [
     "optional chaining operator",
     "null coalescing operator",
