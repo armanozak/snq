@@ -7,6 +7,8 @@
 [![MIT License](https://img.shields.io/github/license/armanozak/snq.svg)](./LICENSE)
 [![Follow the Author on Twitter](https://img.shields.io/twitter/follow/armanozak.svg?label=Follow)](https://twitter.com/armanozak)
 
+> Now that [optional chaining operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) is available, libraries like snq have become redundant. Optional chaining operator is a better, more performant choice. Please use it instead.
+
 **snq** is a utility function to safely navigate arrays and object properties without getting type errors. It is **not an original idea at all** and is actually adapted and only slightly different from [idx](https://github.com/facebookincubator/idx). The main differences are as follows:
 
 - snq returns `undefined` whenever a `TypeError` happens, regardless of the reason for the error and throws an error only if it is not a `TypeError`. idx returns `null`, if the cause of the error is a `null` value and throws an error if the error is not caused by an `undefined` or `null` value.
@@ -14,8 +16,6 @@
 - idx requires the source object as a first parameter. snq does not.
 - idx has a Babel plugin for replacing idx instances with conventional traversing in order to improve performance. Although it is not benchmarked yet, due to lack of reason checks, it is safe to say that snq is faster than idx. Thus, a Babel plugin could prove insignificant for snq.
 - snq is written in TypeScript and, unlike idx, it does not support Flow types.
-
-When [optional chaining operator](https://github.com/tc39/proposal-optional-chaining) finally lands, libraries like snq and idx may become redundant.
 
 ## Installation
 
