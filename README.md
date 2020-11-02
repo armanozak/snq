@@ -70,7 +70,7 @@ products[0].price.original.symbol
 Otherwise, you will get a type error. Using `snq`, it is safe to write the following:
 
 ```typescript
-const symbol = snq(() => this.products[0].price.original.symbol);
+const symbol = snq(() => products[0].price.original.symbol);
 
 // symbol is undefined if a type error happens, actual value if not
 ```
@@ -78,7 +78,7 @@ const symbol = snq(() => this.products[0].price.original.symbol);
 There is an optional second argument which represents the default value to return when a type error happens.
 
 ```typescript
-const symbol = snq(() => this.products[0].price.original.symbol, '$');
+const symbol = snq(() => products[0].price.original.symbol, '$');
 
 // symbol is "$" if a type error happens, actual value if not
 ```
