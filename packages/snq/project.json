@@ -1,0 +1,44 @@
+{
+  "root": "packages/snq",
+  "sourceRoot": "packages/snq/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "project": "packages/snq/package.json",
+        "outputPath": "dist/packages/snq",
+        "entryFile": "packages/snq/src/index.ts",
+        "tsConfig": "packages/snq/tsconfig.lib.json",
+        "assets": [
+          {
+            "input": ".",
+            "glob": "README.md",
+            "output": "."
+          },
+          {
+            "input": ".",
+            "glob": "LICENSE",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/snq/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/snq"],
+      "options": {
+        "jestConfig": "packages/snq/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,4 +1,4 @@
-import snq from '../src/snq';
+import snq from './snq';
 
 interface Price {
   amount: number;

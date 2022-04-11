@@ -1,0 +1,28 @@
+{
+  "name": "snq",
+  "version": "2.0.0",
+  "author": "Levent Arman Özak <arman@armanozak.com> (https://twitter.com/armanozak)",
+  "description": "A utility function to avoid type errors when traversing over arrays and object properties.",
+  "keywords": [
+    "optional chaining operator",
+    "null coalescing operator",
+    "safe navigation operator",
+    "elvis operator",
+    "null safety",
+    "safe call",
+    "type error",
+    "exception handling"
+  ],
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/armanozak/snq.git"
+  },
+  "homepage": "https://github.com/armanozak/snq#readme",
+  "bugs": {
+    "url": "https://github.com/armanozak/snq/issues"
+  },
+  "license": "MIT"
+}

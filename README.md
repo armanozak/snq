@@ -1,13 +1,10 @@
 # snq (Safe Navigation Query)
 
 [![Bundle Size](https://img.shields.io/bundlephobia/minzip/snq.svg)](https://bundlephobia.com/result?p=snq)
-[![Coveralls Coverage](https://img.shields.io/coveralls/armanozak/snq.svg)](https://coveralls.io/github/armanozak/snq)
-[![Code Climate Maintainability](https://img.shields.io/codeclimate/maintainability/armanozak/snq.svg)](https://codeclimate.com/github/armanozak/snq/maintainability)
-[![Travis Build Status](https://img.shields.io/travis/armanozak/snq.svg)](https://travis-ci.org/armanozak/snq)
 [![MIT License](https://img.shields.io/github/license/armanozak/snq.svg)](./LICENSE)
 [![Follow the Author on Twitter](https://img.shields.io/twitter/follow/armanozak.svg?label=Follow)](https://twitter.com/armanozak)
 
-> Now that [optional chaining operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) is available, libraries like snq have become redundant. Optional chaining operator is a better, more performant choice. Please use it instead.
+> Now that [optional chaining](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) and [nullish coalescing](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) operators are available, libraries like snq have become redundant. Please use them instead.
 
 **snq** is a utility function to safely navigate arrays and object properties without getting type errors. It is **not an original idea at all** and is actually adapted and only slightly different from [idx](https://github.com/facebookincubator/idx). The main differences are as follows:
 
@@ -32,6 +29,7 @@ npm install --save snq
 ```
 
 ## Setup
+
 ```typescript
 import snq from 'snq';
 ```
@@ -50,7 +48,7 @@ interface Price {
 interface Product {
   id: number;
   name: string;
-  inStock: boolean; 
+  inStock: boolean;
   price?: {
     final: Price;
     original?: Price;
@@ -62,9 +60,9 @@ This is how it would probably look like when you want to get original price symb
 
 ```typescript
 products.length &&
-products[0].price &&
-products[0].price.original &&
-products[0].price.original.symbol
+  products[0].price &&
+  products[0].price.original &&
+  products[0].price.original.symbol;
 ```
 
 Otherwise, you will get a type error. Using `snq`, it is safe to write the following:
