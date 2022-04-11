@@ -1,4 +1,6 @@
-export default function snq<T = any>(callback: () => T, defaultValue?: T) {
+export function snq<T>(callback: () => T, defaultValue: T): T;
+export function snq<T>(callback: () => T): T | undefined;
+export function snq<T>(callback: () => T, defaultValue?: T) {
   try {
     const result = callback();
     return typeof result === 'undefined' ? defaultValue : result;

@@ -1,3 +1,3 @@
-import snq from './lib/snq';
+import { snq } from './lib/snq';
 
 export default snq;

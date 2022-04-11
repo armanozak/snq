@@ -1,4 +1,4 @@
-import snq from './snq';
+import { snq } from './snq';
 
 interface Price {
   amount: number;
@@ -34,24 +34,8 @@ describe('snq', () => {
     expect(snq(() => product.id)).toBe(10001);
     expect(snq(() => product.name)).toBe('Test Product');
     expect(snq(() => product.inStock, false)).toBe(true);
-    expect(snq(() => product.price.final.amount)).toBe(9.99);
-    expect(snq(() => product.price.final.currency, 'EUR')).toBe('USD');
-  });
-
-  it('should return undefined when TypeError', () => {
-    expect(snq(() => product.price.original)).toBeUndefined();
-  });
-
-  it('should return undefined when TypeError (array)', () => {
-    expect(snq(() => list[1].price.final.currency)).toBeUndefined();
-  });
-
-  it('should return default value when TypeError', () => {
-    expect(snq(() => product.price.original.symbol, '$')).toBe('$');
-  });
-
-  it('should return default value when TypeError (array)', () => {
-    expect(snq(() => list[1].price.final.currency, 'EUR')).toBe('EUR');
+    expect(snq(() => product.price!.final.amount)).toBe(9.99);
+    expect(snq(() => product.price!.final.currency, 'EUR')).toBe('USD');
   });
 
   it('should throw any error except TypeError', () => {
@@ -64,5 +48,23 @@ describe('snq', () => {
     }
 
     expect(snqThatThrowsError).toThrow(expected);
+  });
+
+  it('should return undefined when TypeError', () => {
+    expect(snq(() => product.price!.original)).toBeUndefined();
+  });
+
+  it('should return default value when TypeError', () => {
+    expect(snq(() => product.price!.original!.symbol, '$')).toBe('$');
+  });
+
+  describe('(array)', () => {
+    it('should return undefined when TypeError', () => {
+      expect(snq(() => list[1].price!.final.currency)).toBeUndefined();
+    });
+
+    it('should return default value when TypeError', () => {
+      expect(snq(() => list[1].price!.final.currency, 'EUR')).toBe('EUR');
+    });
   });
 });
